@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from './../../redux/app.reducer';
 import { Todo } from './../../redux/todo/todo.model';
+import { getVisibleTodos } from './../../redux/todo/todo.selectors';
 import * as FilterActions from './../../redux/filter/filter.actions';
 
 @Component({
@@ -30,7 +31,7 @@ export class TodoListComponent implements OnInit {
   }
 
   private readStateTodos(){
-    this.store.select('todos')
+    this.store.select(getVisibleTodos)
     .subscribe(todos => {
       this.todos = todos;
     });
