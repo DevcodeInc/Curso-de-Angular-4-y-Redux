@@ -1,3 +1,7 @@
-<p>
-  new-todo works!
-</p>
+<input 
+  class="new-todo"
+  type="text"
+  autofocus 
+  placeholder="¿Algo por hacer?"
+  [formControl]="textField"
+  (keyup.enter)="saveTodo()"/>
