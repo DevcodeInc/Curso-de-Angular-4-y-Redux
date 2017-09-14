@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -18,7 +19,7 @@ import { FooterComponent } from './footer/footer.component';
     TodoComponent,
     TodoListComponent,
     NewTodoComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

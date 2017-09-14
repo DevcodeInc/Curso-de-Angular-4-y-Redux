@@ -17,16 +17,19 @@ export class NewTodoComponent implements OnInit {
   constructor(
     private store: Store<AppState>
   ) {
-    this.textField = new FormControl('', [Validators.required]);
+    this.textField = new FormControl("", [Validators.required]);
   }
 
   ngOnInit() {
   }
 
   saveTodo(){
-    const text: string = this.textField.value;
-    const action = new TodoActions.AddTodoAction(text);
-    this.store.dispatch(action);
+    if(this.textField.valid){
+      const text: string = this.textField.value;
+      const action = new TodoActions.AddTodoAction(text);
+      this.store.dispatch(action);
+      this.textField.setValue('');
+    }
   }
 
 }

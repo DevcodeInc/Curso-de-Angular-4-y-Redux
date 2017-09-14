@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './../../redux/app.reducer';
+import { Todo } from './../../redux/todo/todo.model';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,16 +11,22 @@ import { AppState } from './../../redux/app.reducer';
 })
 export class TodoListComponent implements OnInit {
 
+  todos: Todo[] = [];
+
   constructor(
     private store: Store<AppState>
   ) {
-    this.store.select('todos')
-    .subscribe(todos => {
-      console.log(todos);
-    });
+  this.readStateTodos(); 
   }
 
   ngOnInit() {
+  }
+
+  private readStateTodos(){
+    this.store.select('todos')
+    .subscribe(todos => {
+      this.todos = todos;
+    });
   }
 
 }
