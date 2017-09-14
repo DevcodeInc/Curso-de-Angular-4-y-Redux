@@ -1,3 +1,27 @@
-<p>
-  footer works!
-</p>
+<footer class="footer">
+  <span class="todo-count">{{ countItemLeft }} item left</span>
+  <ul class="filters">
+    <li>
+      <a 
+        [routerLink]="['/']" 
+        [class.selected]="currentFilter === 'SHOW_ALL'">
+        All
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLink]="['/','active']" 
+        [class.selected]="currentFilter === 'SHOW_ACTIVE'">
+        Active
+      </a>
+    </li>
+    <li>
+      <a 
+        [routerLink]="['/','completed']" 
+        [class.selected]="currentFilter === 'SHOW_COMPLETED'">
+        Completed
+      </a>
+    </li>
+  </ul>
+  <button class="clear-completed">Clear completed</button>
+</footer>
